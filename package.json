@@ -1,0 +1,56 @@
+{
+  "name": "app-testing",
+  "version": "0.0.1",
+  "description": "do stuff and things",
+  "main": "dist/main.js",
+  "scripts": {
+    "syncbuild": "rsync -a src/media dist/",
+    "clean": "rm -rf ./dist",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "postbuild": "npm run syncbuild",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm run build",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "premake": "npm run build",
+    "make": "electron-forge make",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
+  },
+  "author": "Codex Build Inc",
+  "license": "",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "@electron/osx-sign": "^1.0.1",
+    "@types/qs": "^6.9.7",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "electron": "^20.0.3",
+    "electron-notarize": "^1.2.1",
+    "electron-packager": "^16.0.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@nodelib/fs.walk": "^1.2.8",
+    "@types/git-url-parse": "^9.0.1",
+    "dotenv": "^16.0.1",
+    "electron-log": "^4.4.8",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "git-url-parse": "^12.0.0",
+    "joi": "^17.6.0",
+    "qs": "^6.11.0",
+    "simple-git": "^3.13.0"
+  },
+  "config": {
+    "forge": "./forge.config.js"
+  }
+}
